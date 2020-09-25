@@ -6,9 +6,7 @@ import './Header.css'
 import { useStateValue } from '../../datalayer/StateProvider';
 
 function Header() {
-    const [{basket}, dispatch] = useStateValue();
-
-
+    const [{ basket }] = useStateValue();
 
     return (
         <div className='header'>
