@@ -1,8 +1,10 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/header/Header';
 import Home from './components/home/Home';
 import { firebaseConfig } from './firebase'
+import Checkout from './components/checkout/Checkout';
 
 
 function App() {
@@ -11,14 +13,15 @@ function App() {
 
   return (
     // BEM
-    <div className="App">
-      {/* <h1>Hello Roberto. Let's build the Amazon clone </h1><span>🚗</span> */}
-      {/* Header */}
-      <Header />
-      {/* Home */}
-      <Home />
-      {/* Footer */}
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route path="/checkout" component={Checkout} />
+          <Route path="/" component={Home} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
